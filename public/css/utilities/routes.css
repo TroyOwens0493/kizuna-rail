@@ -302,3 +302,38 @@
         }
     }
 }
+
+#filters {
+    display: grid;
+    gap: var(--space-md);
+    margin: var(--space-lg) 0;
+}
+
+#filters .filter-group {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+}
+
+#filters label {
+    color: var(--clr-text-secondary);
+}
+
+#filters select {
+    max-width: 260px;
+}
+
+@media (min-width: 768px) {
+    #filters {
+        grid-template-columns: 1fr 1fr;
+        align-items: end;
+    }
+
+    #filters .filter-region {
+        justify-self: start;
+    }
+
+    #filters .filter-season {
+        justify-self: end;
+    }
+}
