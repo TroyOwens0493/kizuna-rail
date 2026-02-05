@@ -399,6 +399,7 @@ article.confirmation-page {
         transform: scale(0);
         opacity: 0;
     }
+
     to {
         transform: scale(1);
         opacity: 1;
@@ -406,14 +407,35 @@ article.confirmation-page {
 }
 
 @media print {
-    article.confirmation-page {
-        .confirmation-actions {
-            display: none;
-        }
+    @page {
+        size: auto;
+        margin: 0.5in;
+    }
 
-        .confirmation-header {
-            background-color: white;
-            border: 2px solid var(--clr-primary);
+    body {
+        background: white;
+        color: black;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+
+    article.confirmation-page {
+        max-width: 100%;
+        margin: 0;
+        padding: 0;
+
+        * {
+            box-shadow: none;
+            text-shadow: none;
         }
+    }
+
+    .booking-details,
+    .confirmation-actions,
+    .next-steps,
+    header,
+    nav,
+    footer {
+        display: none !important;
     }
 }
