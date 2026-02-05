@@ -1,9 +1,11 @@
 import { getRouteById, getSchedulesByRoute } from '../../models/model.js';
+import { monthNumberToAbbreviation } from '../../includes/helpers.js';
 
 export default async (req, res) => {
     const { routeId } = req.params;
     const details = await getRouteById(routeId);
     details.schedules = await getSchedulesByRoute(routeId);
+    details.operatingMonthsAbbr = details.operatingMonths.map(monthNumberToAbbreviation);
 
     // TODO: getCompleteRouteDetails instead
 
